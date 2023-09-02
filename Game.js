@@ -87,19 +87,18 @@ function Move(object,target){
     ypow = object.y * object.y
     length = Math.abs(Math.sqrt(xpow+ypow) - tlength)
 
-    console.log(length)
     speed = object.speed;
     if(tlength <= 16 && speed >= 16){
         speed = 8;
-        console.log("sa");
+
     }
     if(tlength <= 4 && speed >= 4){
         speed = 2;
-        console.log("sa");
+
     }
     if(tlength <= 2 && speed >= 2){
         speed = 0.5;
-        console.log("sa");
+
     }
     if(tlength <= 2.2){
         
