@@ -33,13 +33,15 @@ sprites = {
     "I":new Image(),
     "grass": new Image(),
     "rock": new Image(),
-    "stone": new Image()
+    "stone": new Image(),
+    "slot": new Image()
 }
 
 sprites["I"].src = "Assets/I.png";
 sprites["grass"].src = "Assets/grass.png";
 sprites["rock"].src = "Assets/rock.png";
 sprites["stone"].src = "Assets/stone.png";
+sprites["slot"].src = "Assets/slot.png";
 
 function X(x) {
     return (oX+x)-player.x
@@ -48,6 +50,12 @@ function Y(y) {
     return (oY-y)+player.y
 }
 
+function uX(params) {
+    return (oX+x)
+}
+function uY(y) {
+    return (oY-y)
+}
 
 addEventListener("contextmenu",e=>{
     e.preventDefault();
@@ -131,4 +139,7 @@ setInterval(()=>{
     ctx.stroke()
     
     ctx.drawImage(sprites["I"],oX,oY+16,32,48);
+    for (let i = 0; i < 10; i++) {
+        ctx.drawImage(sprites["slot"],uX(i*128 + 16),0,128,128);
+    }
 },1000/60);
