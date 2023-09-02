@@ -36,10 +36,10 @@ sprites = {
     "stone": new Image()
 }
 
-sprites["I"].src = "I.png";
-sprites["grass"].src = "grass.png";
-sprites["rock"].src = "rock.png";
-sprites["stone"].src = "stone.png";
+sprites["I"].src = "Assets/I.png";
+sprites["grass"].src = "Assets/grass.png";
+sprites["rock"].src = "Assets/rock.png";
+sprites["stone"].src = "Assets/stone.png";
 
 function X(x) {
     return (oX+x)-player.x
