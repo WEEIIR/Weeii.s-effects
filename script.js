@@ -26,7 +26,9 @@ player = {
     h:50,
     speed:5,
     deg:0,
-    move:true
+    move:true,
+    health:25,
+    mhealth:100
 }
 
 skills = [
@@ -40,7 +42,8 @@ sprites = {
     "rock": new Image(),
     "stone": new Image(),
     "slot": new Image(),
-    "slot2": new Image()
+    "slot2": new Image(),
+    "hearth": new Image()
 }
 
 sprites["I"].src = "Assets/I.png";
@@ -49,6 +52,8 @@ sprites["rock"].src = "Assets/rock.png";
 sprites["stone"].src = "Assets/stone.png";
 sprites["slot"].src = "Assets/slot2.png";
 sprites["slot2"].src = "Assets/slot3.png";
+sprites["hearth"].src = "Assets/hearth.png";
+
 
 function X(x) {
     return (oX+x)-player.x
@@ -145,8 +150,17 @@ setInterval(()=>{
     ctx.stroke()
     
     ctx.drawImage(sprites["I"],oX,oY+16,32,48);
+    ctx.beginPath();
+    ctx.setLineDash([1,0])
+    ctx.lineWidth = "5";
+    ctx.strokeStyle = "#fgg";
+    ctx.rect(58,29, 200, 36);
+    ctx.stroke();
+    ctx.fillStyle = "red";
+    ctx.fillRect(60,32,196*(player.health/player.mhealth),30)
+    ctx.drawImage(sprites["hearth"],12,12,64,64);
+    ctx.fillStyle = "#ffffff00"
     for (let i = 0; i < 10; i++) {
-        ctx.drawImage(sprites["slot"],uX(i*78 - 5.5*72),uY(-oY + 72 + 50),72,72);
+        ctx.drawImage(sprites["slot"],uX(((i-5)*78+19)),uY(oY - 18),72,72);
     }
-    ctx.drawImage(sprites["slot2"],uX(-5.5*72),uY(-oY + 140+ 50),72,72)
 },1000/60);
