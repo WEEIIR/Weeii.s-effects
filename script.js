@@ -29,19 +29,26 @@ player = {
     move:true
 }
 
+skills = [
+    
+]
+
+
 sprites = {
     "I":new Image(),
     "grass": new Image(),
     "rock": new Image(),
     "stone": new Image(),
-    "slot": new Image()
+    "slot": new Image(),
+    "slot2": new Image()
 }
 
 sprites["I"].src = "Assets/I.png";
 sprites["grass"].src = "Assets/grass.png";
 sprites["rock"].src = "Assets/rock.png";
 sprites["stone"].src = "Assets/stone.png";
-sprites["slot"].src = "Assets/slot.png";
+sprites["slot"].src = "Assets/slot2.png";
+sprites["slot2"].src = "Assets/slot3.png";
 
 function X(x) {
     return (oX+x)-player.x
@@ -50,7 +57,7 @@ function Y(y) {
     return (oY-y)+player.y
 }
 
-function uX(params) {
+function uX(x) {
     return (oX+x)
 }
 function uY(y) {
@@ -139,6 +146,7 @@ setInterval(()=>{
     
     ctx.drawImage(sprites["I"],oX,oY+16,32,48);
     for (let i = 0; i < 10; i++) {
-        ctx.drawImage(sprites["slot"],uX(i*128 + 16),0,128,128);
+        ctx.drawImage(sprites["slot"],uX(i*78 - 5.5*72),uY(-oY + 72 + 50),72,72);
     }
+    ctx.drawImage(sprites["slot2"],uX(-5.5*72),uY(-oY + 140+ 50),72,72)
 },1000/60);
