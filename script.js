@@ -74,7 +74,7 @@ addEventListener("contextmenu",e=>{
 })
 
 addEventListener("mousedown",(e)=>{
-    if (e.button == 2) {     
+    if (true) {     
         target.x = 32*Math.round((oX - e.x + 16)/32)
         target.y = 32*Math.round((oY - e.y + 40)/32)
 
